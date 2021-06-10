@@ -16,6 +16,6 @@ Street | Mūkusalas
 8.	Change delivery fee configuration for extra 3 EUR charge for deliveries on Saturday
 9.	Create SQL query to retrieve Pickup Point count for Omniva grouped by city
 10.	Create delivery fee configuration for delivery to Lithuania shipped by DPD with fee 10 EUR if order weight is less than 10kg and 20 EUR otherwise
-11.	Create SQL which will normalize phone numbers by removing country code. Country code is predefined 371
-12.	Eliminate normalized phone number duplicates in table contacts. Leave most recent contact (sorting by ID Desc)
-13. Assume you have orders table and there is a requirement to generate unique order numbers which can’t have gaps. Create needed database structures and PHP class or function to generate unique order numbers without gaps
+11.	Create SQL which will normalize phone numbers in table `contacts` by removing country code. Country code is predefined 371
+12.	Eliminate normalized phone number duplicates in table `contacts`. Leave most recent contact (sorting by ID descending)
+13. Assume you have `orders` table and there is a requirement to generate unique order numbers which can’t have gaps. Create needed database structures and PHP class or function to generate unique order numbers without gaps
