@@ -118,10 +118,10 @@ create table delivery_fee_configuration
 	aov_id bigint
 		constraint dfc_aov_fk
 			references address_object_type_values,
-	total_product_weight_from numeric(7,2) not null,
-	total_product_weight_to numeric(7,2) not null,
-	order_total_amount_from numeric(14,2) not null,
-	order_total_amount_to numeric(14,2) not null,
+	total_product_weight_from numeric(7,2),
+	total_product_weight_to numeric(7,2) ,
+	order_total_amount_from numeric(14,2),
+	order_total_amount_to numeric(14,2) ,
 	delivery_fee numeric(14,2) not null
 );
 
