@@ -9177,6 +9177,70 @@ INSERT INTO addresses (id, atp_id, full_address) VALUES (nextval('addr_seq'), (S
 INSERT INTO address_objects (addr_id, aot_id, aov_id, value) VALUES (currval('addr_seq'), (SELECT aot.id FROM address_types atp JOIN address_object_types aot ON aot.atp_id = atp.id AND UPPER(aot.code) = UPPER('CITY') WHERE UPPER(atp.code) = UPPER('LT_PICKUP_POINTS_WO_POSTAL_CODE')), (SELECT aov.id FROM address_types atp JOIN address_object_types aot ON aot.atp_id = atp.id AND UPPER(aot.code) = UPPER('CITY') JOIN address_object_type_values aov ON aov.aot_id = aot.id AND UPPER(aov.value) =UPPER('Kauno apskr.') WHERE UPPER(atp.code) = UPPER('LT_PICKUP_POINTS_WO_POSTAL_CODE')),NULL);
 INSERT INTO address_objects (addr_id, aot_id, aov_id, value) VALUES (currval('addr_seq'), (SELECT aot.id FROM address_types atp JOIN address_object_types aot ON aot.atp_id = atp.id AND UPPER(aot.code) = UPPER('ADDRESS_LINE_1') WHERE UPPER(atp.code) = UPPER('LT_PICKUP_POINTS_WO_POSTAL_CODE')), NULL,'Kaišiadorių r. sav. (Žiežmarių MAXIMA paštomatas)')
 INSERT INTO pickup_points (id, dty_id, addr_id) VALUES (nextval('ppo_seq'), (SELECT dty.id FROM delivery_types dty WHERE UPPER(dty.code) = UPPER('OMNIVA_PICKUP')), currval('addr_seq'));
+
+
+INSERT INTO delivery_fee_configuration (
+    id,
+    dty_id,
+    dft_id,
+    delivery_fee
+) VALUES (
+    nextval('dfc_seq'),
+    (SELECT dty.id FROM delivery_types dty WHERE dty.code = 'DPD'),
+    (SELECT dft.id FROM delivery_fee_types dft WHERE dft.code = 'BASE'),
+    3
+);
+
+INSERT INTO delivery_fee_configuration (
+    id,
+    dty_id,
+    dft_id,
+    delivery_fee
+) VALUES (
+    nextval('dfc_seq'),
+    (SELECT dty.id FROM delivery_types dty WHERE dty.code = 'LATVIJAS_PASTS_D2D'),
+    (SELECT dft.id FROM delivery_fee_types dft WHERE dft.code = 'BASE'),
+    2
+);
+
+INSERT INTO delivery_fee_configuration (
+    id,
+    dty_id,
+    dft_id,
+    delivery_fee
+) VALUES (
+    nextval('dfc_seq'),
+    (SELECT dty.id FROM delivery_types dty WHERE dty.code = 'ITELLA_PICKUP'),
+    (SELECT dft.id FROM delivery_fee_types dft WHERE dft.code = 'BASE'),
+    1.99
+);
+
+
+INSERT INTO delivery_fee_configuration (
+    id,
+    dty_id,
+    dft_id,
+    delivery_fee
+) VALUES (
+    nextval('dfc_seq'),
+    (SELECT dty.id FROM delivery_types dty WHERE dty.code = 'DPD_PICKUP'),
+    (SELECT dft.id FROM delivery_fee_types dft WHERE dft.code = 'BASE'),
+    2.99
+);
+
+INSERT INTO delivery_fee_configuration (
+    id,
+    dty_id,
+    dft_id,
+    delivery_fee
+) VALUES (
+    nextval('dfc_seq'),
+    (SELECT dty.id FROM delivery_types dty WHERE dty.code = 'OMNIVA_PICKUP'),
+    (SELECT dft.id FROM delivery_fee_types dft WHERE dft.code = 'BASE'),
+    3.99
+);
+
+
 --
 DO $$
 DECLARE
