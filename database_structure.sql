@@ -112,7 +112,7 @@ create table delivery_fee_configuration
 		constraint dfc_dty_fk
 			references delivery_types,
 	dft_id bigint not null CONSTRAINT dfc_dft_fk REFERENCES delivery_fee_types,
-	atp_id bigint not null
+	atp_id bigint 
 		constraint dfc_atp_fk
 			references address_types,
 	aov_id bigint
