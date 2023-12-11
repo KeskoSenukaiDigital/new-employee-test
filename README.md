@@ -1,3 +1,8 @@
+# Expectations
+
+1.	Where task asks 'Create SQL query' we expect a raw sql query written
+2.	Where task does not indicate 'Create SQL query' you can write code how you are comfortable writing it, you can use ORM, as long as requirement is satisfied
+
 # Tasks
 
 1.	Create SQL query which will select all possible address object type values for given address object type
